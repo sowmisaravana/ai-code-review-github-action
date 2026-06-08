@@ -67,17 +67,17 @@ def main():
         logger.error("GEMINI_API_KEY is not set.")
         sys.exit(1)
         
-    if not github_token and not args.dry-run:
+    if not github_token and not args.dry_run:
         logger.error("GITHUB_TOKEN is not set and --dry-run is not enabled.")
         sys.exit(1)
         
-    if not repository and not args.dry-run:
+    if not repository and not args.dry_run:
         logger.error("GITHUB_REPOSITORY is not set and --dry-run is not enabled.")
         sys.exit(1)
 
     # Resolve PR number
     pr_number = None
-    if not args.dry-run:
+    if not args.dry_run:
         try:
             pr_number = get_pr_number()
             logger.info(f"Review target repository: {repository}, PR: {pr_number}")
@@ -96,7 +96,7 @@ def main():
     # 1. Fetch changed files and their code content
     changed_files_data = []
     
-    if args.dry-run:
+    if args.dry_run:
         logger.info("Dry-run mode: Looking for C# files locally in workspace...")
         # Local search for C# files to test locally
         for root, _, files in os.walk("."):
@@ -152,7 +152,7 @@ def main():
                 
                 # In dry-run, we keep all findings regardless of line modifications.
                 # In standard PR review, we only post inline comments on lines modified/added in the PR.
-                if args.dry-run:
+                if args.dry_run:
                     pr_comments.append({
                         "path": filename,
                         "line": line,
@@ -178,7 +178,7 @@ def main():
     # 3. Format and submit results
     summary_markdown = format_review_summary(all_findings, len(changed_files_data))
     
-    if args.dry-run:
+    if args.dry_run:
         logger.info("\n=== DRY RUN REVIEW SUMMARY ===")
         print(summary_markdown)
         logger.info("\n=== DRY RUN INLINE COMMENTS ===")
