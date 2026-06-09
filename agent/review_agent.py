@@ -6,6 +6,9 @@ import logging
 from dotenv import load_dotenv
 from typing import List, Dict, Any
 
+# Ensure the directory containing this script is on the search path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 # Load modules
 from github_handler import GithubHandler
 from gemini_client import GeminiCodeReviewer

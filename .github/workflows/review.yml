@@ -38,4 +38,4 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
           GEMINI_MODEL: 'gemini-1.5-flash'
-        run: python review_agent.py
+        run: python agent/review_agent.py

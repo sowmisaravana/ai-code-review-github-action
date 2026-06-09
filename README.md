@@ -19,6 +19,11 @@ A production-ready GitHub Action that automatically reviews C# pull requests usi
 ├── .github/
 │   └── workflows/
 │       └── review.yml          # GitHub Action definition
+├── agent/
+│   ├── formatter.py            # Formats findings to GitHub Markdown
+│   ├── gemini_client.py        # Client wrapper with validation & retries
+│   ├── github_handler.py       # PyGithub integration and patch parsing logic
+│   └── review_agent.py         # Main entry point and orchestrator
 ├── docs/
 │   ├── architecture.md         # Architecture diagrams and design details
 │   ├── demo_script.md          # Guide to verify locally and in GitHub
@@ -30,12 +35,8 @@ A production-ready GitHub Action that automatically reviews C# pull requests usi
 │   ├── NullHandling/
 │   └── AsyncCorrectness/
 ├── .env.example                # Example environment variables file
-├── formatter.py                # Formats findings to GitHub Markdown
-├── gemini_client.py            # Client wrapper with validation & retries
-├── github_handler.py           # PyGithub integration and patch parsing logic
 ├── README.md                   # Setup and usage guide
-├── requirements.txt            # Python dependencies
-└── review_agent.py             # Main entry point and orchestrator
+└── requirements.txt            # Python dependencies
 ```
 
 ---
@@ -59,7 +60,7 @@ To dry-run the analysis locally over the sample files:
    ```
 4. Run the orchestrator in dry-run mode:
    ```bash
-   python review_agent.py --dry-run
+   python agent/review_agent.py --dry-run
    ```
 
 ### 2. GitHub Action Integration

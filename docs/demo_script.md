@@ -30,7 +30,7 @@ You can run the review agent locally using Python. The `--dry-run` flag instruct
    ```
 5. Run the orchestrator script in dry-run mode:
    ```powershell
-   python review_agent.py --dry-run
+   python agent/review_agent.py --dry-run
    ```
 6. **Expectation:** The script will locate the C# files in `sample-csharp-project/`, call the Gemini API for each, validate the responses, and print the markdown-formatted inline comments and reviews to your terminal.
 
