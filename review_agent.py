@@ -21,7 +21,7 @@ logger = logging.getLogger("CodeReviewer.Orchestrator")
 
 def parse_args():
     parser = argparse.ArgumentParser(description="AI Code Reviewer Agent using Gemini")
-    parser.add_argument("--dry_run", action="store_true", help="Print findings to stdout without posting to GitHub")
+    parser.add_argument("--dry-run", action="store_true", help="Print findings to stdout without posting to GitHub")
     return parser.parse_args()
 
 def get_pr_number() -> int:
