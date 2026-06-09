@@ -88,7 +88,7 @@ def main():
     # Initialize clients
     try:
         reviewer = GeminiCodeReviewer(api_key=gemini_key)
-        github_handler = None if args.dry-run else GithubHandler(token=github_token)
+        github_handler = None if args.dry_run else GithubHandler(token=github_token)
     except Exception as e:
         logger.error(f"Failed to initialize clients: {str(e)}")
         sys.exit(1)
