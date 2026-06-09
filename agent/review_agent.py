@@ -71,7 +71,7 @@ def main():
         sys.exit(1)
         
     if not github_token and not args.dry_run:
-        logger.error("GITHUB_TOKEN is not set and --dry-run is not enabled.")
+        logger.error("GITHUB_TOKEN is not set and --dry_run is not enabled.")
         sys.exit(1)
         
     if not repository and not args.dry_run:
