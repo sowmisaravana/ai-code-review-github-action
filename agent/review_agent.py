@@ -6,6 +6,9 @@ import logging
 from dotenv import load_dotenv
 from typing import List, Dict, Any
 
+# Ensure the directory containing this script is on the search path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 # Load modules
 from github_handler import GithubHandler
 from gemini_client import GeminiCodeReviewer
@@ -68,11 +71,19 @@ def main():
         sys.exit(1)
         
     if not github_token and not args.dry_run:
+        HEAD:review_agent.py
         logger.error("GITHUB_TOKEN is not set and --dry_run is not enabled.")
         sys.exit(1)
         
     if not repository and not args.dry_run:
         logger.error("GITHUB_REPOSITORY is not set and --dry_run is not enabled.")
+
+        logger.error("GITHUB_TOKEN is not set and --dry-run is not enabled.")
+        sys.exit(1)
+        
+    if not repository and not args.dry_run:
+        logger.error("GITHUB_REPOSITORY is not set and --dry-run is not enabled.")
+        origin/main:agent/review_agent.py
         sys.exit(1)
 
     # Resolve PR number
@@ -97,7 +108,10 @@ def main():
     changed_files_data = []
     
     if args.dry_run:
+        HEAD:review_agent.py
         logger.info("Dry_run mode: Looking for C# files locally in workspace...")
+        logger.info("Dry-run mode: Looking for C# files locally in workspace...")
+        origin/main:agent/review_agent.py
         # Local search for C# files to test locally
         for root, _, files in os.walk("."):
             # Skip virtual environments and hidden directories

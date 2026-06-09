@@ -46,11 +46,11 @@ class GeminiCodeReviewer:
 
     def _load_prompt_template(self) -> str:
         """Loads the prompt template from prompts/review_prompt.txt."""
-        # Find the prompt path relative to the current file
+        # Find the prompt path relative to the current file (which is in the agent/ directory)
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        prompt_path = os.path.join(current_dir, "prompts", "review_prompt.txt")
+        prompt_path = os.path.join(current_dir, "..", "prompts", "review_prompt.txt")
         
-        # Fallback to local execution directory if subfolder doesn't exist directly
+        # Fallback to local execution directory if parent folder search fails
         if not os.path.exists(prompt_path):
             prompt_path = os.path.join("prompts", "review_prompt.txt")
             
